@@ -6,4 +6,4 @@ class Model_Question(db.Model):
     answers = db.relationship('Answer', backref='question', lazy='dynamic')
 
     def __repr__(self):
-        return '<Question %r>' % self.content
+        return '<Question %r>' % (self.content)

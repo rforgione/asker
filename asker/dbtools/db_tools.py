@@ -1,9 +1,11 @@
+import sys
+sys.path.append('../../')
 from migrate.versioning import api
 from app import db, config
 import os.path
 import imp
 
-class DBTools_DBManage(object):
+class DBTools_DBTools(object):
 
     def __init__(self):
         pass
