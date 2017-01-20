@@ -1,7 +1,6 @@
-from app import app
-from app.controllers import *
-from app.views import *
-from app.api import *
+from asker import app
+from asker.controllers import *
+from asker.views import *
 
 @app.route('/')
 @app.route('/<name>')

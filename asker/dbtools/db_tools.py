@@ -1,7 +1,8 @@
 import sys
-sys.path.append('../../')
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 from migrate.versioning import api
-from app import db, config
+from asker import db, config
 import os.path
 import imp
 

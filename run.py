@@ -1,3 +1,3 @@
-from app import app
+from asker import app
 
 app.run(debug=True)
