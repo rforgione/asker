@@ -1,7 +1,7 @@
 import sys
 import os
 
-def setpath():
+def require():
     sys.path.append(
         os.path.dirname(
             os.path.dirname(

@@ -1,7 +1,11 @@
+import sys
+import os
+sys.path.append(os.realpath.)
 from app.views import *
+from app import db
 
-class Controllers_ViewThreadController(object):
-    def __init__(self, thread_id):
+class Controllers_ViewQuestionController(object):
+    def __init__(self, question_id):
         self.thread_id = thread_id
 
     def render_view(self):

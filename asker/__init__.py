@@ -7,6 +7,6 @@ db = SQLAlchemy(app)
 
 from asker.models import *
 from asker.views import *
-from asker.views import *
+from asker.controllers import *
 from asker.routing import *
 from asker.dbtools import *
