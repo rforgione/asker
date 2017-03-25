@@ -6,12 +6,13 @@ import config
 import os.path
 import imp
 
-class DBTools_DBTools(object):
+class DBTools(object):
 
     def __init__(self):
         pass
 
     def db_create(self):
+        """Creates the database."""
         db.create_all()
         if not os.path.exists(config.SQLALCHEMY_MIGRATE_REPO):
             api.create(config.SQLALCHEMY_MIGRATE_REPO, 'database repository')
@@ -20,17 +21,20 @@ class DBTools_DBTools(object):
             api.version_control(config.SQLALCHEMY_DATABASE_URI, config.SQLALCHEMY_MIGRATE_REPO, api.version(config.SQLALCHEMY_MIGRATE_REPO))
 
     def db_upgrade(self):
+        """Upgrades the database to the latest revision."""
         api.upgrade(config.SQLALCHEMY_DATABASE_URI, config.SQLALCHEMY_MIGRATE_REPO)
         v = api.db_version(config.SQLALCHEMY_DATABASE_URI, config.SQLALCHEMY_MIGRATE_REPO)
         print('Current database version: ' + str(v))
 
     def db_downgrade(self):
+        """Downgrades the database a single revision."""
         v = api.db_version(config.SQLALCHEMY_DATABASE_URI, config.SQLALCHEMY_MIGRATE_REPO)
         api.downgrade(config.SQLALCHEMY_DATABASE_URI, config.SQLALCHEMY_MIGRATE_REPO, v - 1)
         v = api.db_version(config.SQLALCHEMY_DATABASE_URI, config.SQLALCHEMY_MIGRATE_REPO)
         print('Current database version: ' + str(v))
 
     def db_migrate(self):
+        """Creates a new database revision."""
         v = api.db_version(config.SQLALCHEMY_DATABASE_URI, config.SQLALCHEMY_MIGRATE_REPO)
         migration = config.SQLALCHEMY_MIGRATE_REPO + ('/versions/%03d_migration.py' % (v+1))
         tmp_module = imp.new_module('old_model')

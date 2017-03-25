@@ -1,15 +1,15 @@
 from asker import app
-from asker.controllers import *
+from controllers.home_controller import HomeController
 from asker.views import *
 
 @app.route('/')
-@app.route('/<name>')
-def route_hello_world(name="Rob"):
-    hwc = Controllers_HelloWorldController(name)
-    return hwc.render_view()
+@app.route('/<string:name>')
+def route_home(name="buddy"):
+    hc = HomeController()
+    return hc.render_view(name)
 
-@app.route('/api/name/<name>')
-def route_set_name(name):
-    api_name = API_Name()
-    api_name.set_name(name)
-    return None
+def route_view_question(question_id):
+    pass
+
+def route_post_question(user_id=None, content=None):
+    pass

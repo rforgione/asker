@@ -1,11 +1,10 @@
-import sys
-import os
-sys.path.append(os.realpath.)
+from setpath import setpath
+setpath()
 from app.views import *
 from app import db
 
-class Controllers_ViewQuestionController(object):
-    def __init__(self, question_id):
+class ViewThreadController(object):
+    def __init__(self, thread_id):
         self.thread_id = thread_id
 
     def render_view(self):

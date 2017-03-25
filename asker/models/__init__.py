@@ -4,6 +4,6 @@ __all__ = [
     "user"
 ]
 
-from question import Models_Question
-from answer import Models_Answer
-from user import Models_User
+from question import Question
+from answer import Answer
+from user import User

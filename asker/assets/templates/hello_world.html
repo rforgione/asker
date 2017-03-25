@@ -4,5 +4,8 @@
   </head>
   <body>
     <h1>Hello, {{ name }}!</h1>
+    {% for item in top_5 %}
+        <h3>{{ item.content }}</h3>
+    {% endfor %}
   </body>
 </html>
