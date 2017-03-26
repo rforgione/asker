@@ -1,5 +1,7 @@
 from asker import db
 from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
+
 
 class Question(db.Model):
     # fields
@@ -9,8 +11,8 @@ class Question(db.Model):
     create_date = db.Column(db.Integer)
 
     # relationships
-    answers = db.relationship('Answer', backref='question',
-                              lazy='dynamic')
+    # answers = db.relationship('Answer', backref='question',
+    #                           lazy='dynamic')
 
     def __init__(self, content, author):
         super(Question, self).__init__()
@@ -20,3 +22,4 @@ class Question(db.Model):
 
     def __repr__(self):
         return '<Question %r>' % (self.content)
+
